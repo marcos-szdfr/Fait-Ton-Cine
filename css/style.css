@@ -1,30 +1,46 @@
-img{
+img {
   width: 80px;
 }
 
-.admin{
+.admin {
   width: 100px;
 }
 
-.loupe{
+.loupe {
   width: 20px;
 }
 
-body{
+body {
   display: flex;
   flex-direction: column;
-  background-color: rgb(118, 114, 106);
+  background-color: rgb(176, 158, 117);
 }
 
-header{
-  border-bottom: 4px solid red;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
+header {
+  border: 4px solid rgb(0, 0, 0);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 10px;
+  margin-bottom: 20px;
 }
 
-.recherche{
+main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.recherche {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.resultat-de-recherche {
+  border: 2px solid rgb(0, 0, 0);
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
