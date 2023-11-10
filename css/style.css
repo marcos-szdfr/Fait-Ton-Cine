@@ -1,104 +1,30 @@
+img{
+  width: 80px;
+}
 
+.admin{
+  width: 100px;
+}
 
-*,*::before,*::after{box-sizing: border-box}	
-	
-input[type="checkbox"] {
+.loupe{
+  width: 20px;
+}
 
-position: absolute;
-left: -100vw;
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(118, 114, 106);
+}
 
-}	
-	
-.hamburger+label{
-	
-cursor: pointer;
-width: 60px;
-height: 60px;
+header{
+  border-bottom: 4px solid red;
 display: flex;
-align-items: center;
-justify-content: center;
-background: #fff;
-border-radius: 9999px;
-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-margin: 5rem auto;	
-}
-		
-.hamburger+label span {
-	
-background: #6753ea;
-width: 40px;
-height: 5px;
-position: relative;
-
- 
-}
-		
-.hamburger+label span::before, 
-.hamburger+label span::after {
-
-  position: absolute;
-  background: #6753ea;
-  width: inherit;
-  height: inherit;
-  content: "";
-}
-	
-.hamburger+label span::before {
-  top: -10px;
-}
-.hamburger+label span::after {
-  top: 10px;
-}
-	
-.hamburger:checked+label span {
-	
-  background: transparent;
-	
-}
-	
-.hamburger:checked+label span::after,
-.hamburger:checked+label span::before {
-
-top: 0;
-	
-}
-	
-.hamburger:checked+label span::before {
-	
-  transform: rotate(45deg);
-	
-}
-	
-.hamburger:checked+label span::after {
-	
-  transform: rotate(-45deg);
-	
+flex-direction: row;
+justify-content: space-between;
 }
 
-.hamburger:focus-visible~label {
-
-  outline: 2px solid #6753ea;
-  outline-offset: 4px;
-}
-	
-.hamburger:not(:focus-visible)~label
-	{
-    outline: none;
-  }	
-
-.hamburger:not(:focus-visible):focus~label{box-shadow: 0 0 0 4px hsl(248, 78%, 58%)}
-	
-	
-/*on applique les transitions ici*/	
-	
-@media (prefers-reduced-motion: no-preference) {
-
-.hamburger+label span {transition: background 10ms 300ms;}
-.hamburger+label span::before, 
-.hamburger+label span::after{transition: top 300ms 350ms, transform 300ms 50ms;}
-.hamburger:checked+label span::after,
-.hamburger:checked+label span::before {transition: top 300ms 50ms, transform 300ms 350ms;}	
-	
-.hamburger:focus-visible~label {transition: outline-offset .25s ease;}		
-  
+.recherche{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
