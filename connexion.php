@@ -1,6 +1,9 @@
 <?php 
 
+
 $pdo = new PDO("mysql:host=localhost;dbname=fait_ton_cine;charset=UTF8", "maka","maka1");
+
+
 
 $statement = $pdo->prepare("SELECT * FROM films");
 
