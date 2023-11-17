@@ -2,7 +2,7 @@
 
 $pdo = new PDO(
     "MySQL:host=localhost;
-    BDName=fait_ton_cine; charset=UTF8",
+    BDName=fait_ton_cine; charset=UTF-8",
     "maka",
     "maka1"
 );
