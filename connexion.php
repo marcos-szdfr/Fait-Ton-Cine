@@ -1,15 +1,13 @@
 <?php
-$option = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES => false,
-];
 
-$dsn = 'mysql:host=localhost;dbname=fait_ton_cine;charset=utf8';
-$pdo = new PDO($dsn, "maka", "maka1", $option);
+include_once("includes/fonctions.php");
+connexionBdd();
 
 $username = filter_input(INPUT_POST, "Username", FILTER_SANITIZE_SPECIAL_CHARS);
 $password = filter_input(INPUT_POST, "Password", FILTER_SANITIZE_SPECIAL_CHARS);
+
+$hiddenOrNot = "true"
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +20,7 @@ $password = filter_input(INPUT_POST, "Password", FILTER_SANITIZE_SPECIAL_CHARS);
 
 <body>
     <h1>Connexion</h1>
-    <form action="connexion.php" method="post">
+    <form action="connexion.php" method="post" style aria-hidden="true">
         <legend>Connexion à la BDD</legend>
         <div>
             <label for="username">Username</label>
@@ -33,21 +31,34 @@ $password = filter_input(INPUT_POST, "Password", FILTER_SANITIZE_SPECIAL_CHARS);
             <input type="text" name="Password">
         </div>
         <div>
-            <button type="submit">Log in</button>
+            <button type="submit" <?php  ?>>Log in</button>
         </div>
     </form>
 
     <?php
     if ($username === "maka" && $password === "maka1") {
         try {
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo 'Connexion réussie';
+            $hiddenOrNot = 'true';
+            connexionBdd()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo 'Connexion réussie, ';
+
+            $sql = "ALTER TABLE films
+            DROP COLUMN test";
+            connexionBdd()->exec($sql);
+
             $sql = "ALTER TABLE films
             ADD test INT(5) NOT NULL";
+            connexionBdd()->exec($sql);
+            echo "colonne crée. ";
 
-            $pdo->exec($sql);
-            echo "Colonne crée";
+            $sql = "SELECT titre, annee FROM films";
+            $statement= $db->prepare($sql);
+
+            echo("Récupération de toutes les lignes d'un jeu de résultats :\n");
+            $film = $statement->fetch();
+
         } catch (PDOException $e) {
+            $hiddenOrNot = 'false';
             echo "Erreur : " . $e->getMessage();
         }
     }
