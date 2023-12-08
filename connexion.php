@@ -44,14 +44,12 @@ $password = filter_input(INPUT_POST, "Password", FILTER_SANITIZE_SPECIAL_CHARS);
             echo 'Connexion réussie';
             $sql = "ALTER TABLE films
             ADD test INT(5) NOT NULL";
-    
+
             $pdo->exec($sql);
             echo "Colonne crée";
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
         }
-
     }
 
 
