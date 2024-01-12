@@ -30,6 +30,8 @@
 
             <label for="titre">Veuillez saisir le genre:</label>
             <input type="text" name="genre" id="genre">
+
+            <button type="submit">valider</button>
         </form>
     </main>
 </body>

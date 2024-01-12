@@ -1,3 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter Un Noveau Réalisateur</title>
+</head>
+
+<body>
+    <label for="nom">Veuillez saisir nom:</label>
+    <input type="text" name="nom" id="nom">
+
+    <label for="prenom">Veuillez saisir prénom:</label>
+    <input type="text" name="prenom" id="prenom">
+
+    <label for="anneeNaissance">Veuillez saisir l'année de naissance:</label>
+    <input type="number" name="anneeNaissance" id="anneeNaissance">
+
+    <button type="submit">valider</button>
+</body>
+
+</html>
+
 <?php
 
 require_once 'php/ajouter.php';
@@ -13,23 +37,5 @@ if ($resultat) {
 } else {
     echo "L'opération a échouer.";
 }
+
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter Un Noveau Réalisateur</title>
-</head>
-
-<body>
-    <input type="text" name="nom" id="nom">
-
-    <input type="text" name="prenom" id="prenom">
-
-    <input type="number" name="anneeNaissance" id="anneeNaissance">
-</body>
-
-</html>
